@@ -1,11 +1,7 @@
-import Link from "next/link";
-
 export default function Home() {
   return (
     <main>
-      <h1>Hello, World!</h1>
-      <Link href="/about">About</Link>
-      <Link href="/games">Games</Link>
+      <h1>Hello, This is the front page to my website that is very empty right now.</h1>
     </main>
 
   );

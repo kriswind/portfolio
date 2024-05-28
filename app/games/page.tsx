@@ -2,7 +2,7 @@ import React from 'react'
 
 const GamesPage = () => {
   return (
-    <div>this is where i put my example games</div>
+    <div>Placeholder for my games directory, inspired by <a href="https://neal.fun" >neal.fun</a></div>
   )
 }
 
