@@ -24,13 +24,20 @@ __        ___           _                _
 |_|   \\___/|_|   \\__|_|  \\___/|_|_|\\___/ 
 `;
 
-
-const TerminalController = (props = {}) => {
+const TerminalController = (_props = {}) => {
+  //splash screen
   const [terminalLineData, setTerminalLineData] = useState([
     <TerminalOutput key={0}>{ asciiArt + '\nPlease use the \'help\' command for a list of available commands.'}</TerminalOutput>
   ]);
 
+  // state for color mode
+  const [colorMode, setColorMode] = useState(ColorMode.Dark);
+
   const handleInput = (input: string) => {
+    // clears screen if input is handled for the first time
+    if (terminalLineData.length === 1 && terminalLineData[0].props.children === asciiArt + '\nPlease use the \'help\' command for a list of available commands.') {
+      setTerminalLineData([]);
+    }
     if (input.toLowerCase() === 'help') {
       setTerminalLineData((prevState) => [
         ...prevState, 
@@ -55,6 +62,18 @@ const TerminalController = (props = {}) => {
         ...prevState,
         <TerminalOutput key={prevState.length}>{ Socials() }</TerminalOutput>
       ]);
+    } else if (input.toLowerCase() === 'light') {
+      //sets the ColorMode to light
+      setColorMode(ColorMode.Light);
+      setTerminalLineData((prevState) => [
+        ...prevState
+      ]);
+    } else if (input.toLowerCase() === 'dark') {
+      //sets the ColorMode to dark
+      setColorMode(ColorMode.Dark);
+      setTerminalLineData((prevState) => [
+        ...prevState
+      ]);
     } else {
       setTerminalLineData((prevState) => [
         ...prevState, 
@@ -64,17 +83,21 @@ const TerminalController = (props = {}) => {
   }
 
   return (
-    <div className="contents">
+    <div style={{
+      display: 'flex',
+      minHeight: '100vh',
+      width: '100%',
+    }}>
       <Terminal 
         name='Christopher Windsor&apos;s Terminal' 
-        colorMode={ ColorMode.Dark }  
+        colorMode={ colorMode }  
         onInput={handleInput}
-        height='100vh'
+        height='100%'
         redBtnCallback={() => handleInput('clear')}
         yellowBtnCallback={() => handleInput('help')}
         greenBtnCallback={() => handleInput('socials')}
       >
-        { terminalLineData }
+        {terminalLineData}
       </Terminal>
     </div>
   )
