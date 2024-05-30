@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Sidebar = () => {
   return (
     <div className="d-flex flex-column p-3 sidebar">
-      <h4>My Sidebar</h4>
+      <h4>Christopher Windsor&apos;s Portfolio</h4>
       <ul className="nav nav-pills flex-column mb-auto">
         <li className="nav-item">
           <Link href="/" className="nav-link">
