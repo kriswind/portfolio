@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import React, { useState } from 'react';
 import Terminal, { ColorMode, TerminalOutput } from 'react-terminal-ui';
-import { Help, About, Buttons } from './TerminalCommands';
+import { Help, About, Buttons, Socials } from './TerminalCommands';
 
 const asciiArt = `
  ____ _          _     _              _               
@@ -36,6 +36,10 @@ const TerminalController = (props = {}) => {
         ...prevState, 
         <TerminalOutput key={prevState.length}>{ Help() }</TerminalOutput>
       ]);
+    } else if (input.toLowerCase() === 'clear') {
+      setTerminalLineData((prevState) => [
+        <TerminalOutput key={prevState.length}></TerminalOutput>
+      ]);
     } else if (input.toLowerCase() === 'about') {
       setTerminalLineData((prevState) => [
         ...prevState, 
@@ -46,6 +50,11 @@ const TerminalController = (props = {}) => {
         ...prevState, 
         <TerminalOutput key={prevState.length}>{ Buttons() }</TerminalOutput>
       ]);
+    } else if (input.toLowerCase() === 'socials') {
+      setTerminalLineData((prevState) => [
+        ...prevState,
+        <TerminalOutput key={prevState.length}>{ Socials() }</TerminalOutput>
+      ]);
     } else {
       setTerminalLineData((prevState) => [
         ...prevState, 
@@ -54,30 +63,16 @@ const TerminalController = (props = {}) => {
     }
   }
 
-  const handleRedButton = () => {
-    setTerminalLineData((prevState) => [
-      <TerminalOutput key={prevState.length}></TerminalOutput>
-    ]);
-  }
-
-  const handleGreenButton = () => {
-    setTerminalLineData((prevState) => [
-      <TerminalOutput key={prevState.length}>
-        {'My Socials:\n[Github](https://www.github.com/kriswind)'}
-      </TerminalOutput>
-    ]);
-  }
-
   return (
-    <div className="container">
+    <div className="contents">
       <Terminal 
         name='Christopher Windsor&apos;s Terminal' 
         colorMode={ ColorMode.Dark }  
         onInput={handleInput}
         height='100vh'
-        redBtnCallback={handleRedButton}
+        redBtnCallback={() => handleInput('clear')}
         yellowBtnCallback={() => handleInput('help')}
-        greenBtnCallback={handleGreenButton}
+        greenBtnCallback={() => handleInput('socials')}
       >
         { terminalLineData }
       </Terminal>
