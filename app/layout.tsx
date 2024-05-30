@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import 'bootstrap/dist/css/bootstrap.css';
 import "./globals.css";
-//import Sidebar from "../public/components/SideBar";
 import BootstrapClient from "./components/BoostrapClient";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -21,7 +20,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <div style={{ display: 'flex'}}>
-          {/* <Sidebar /> */}
           <main style={{ flex: 1 }}>
             {children}
           </main>
