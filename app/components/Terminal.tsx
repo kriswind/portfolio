@@ -61,7 +61,7 @@ const TerminalController = (props = {}) => {
   const router = useRouter();
   //splash screen
   const [terminalLineData, setTerminalLineData] = useState([
-    <TerminalOutput key={0}>{ asciiArt + '\nPlease use the \'help\' command for a list of available commands.'}</TerminalOutput>
+    <TerminalOutput key={0}>{ asciiArt + '\nPlease type \'help\' for a list of available commands.'}</TerminalOutput>
   ]);
 
   // state for color mode
