@@ -6,7 +6,7 @@ import { Help, About, Buttons, Socials } from './TerminalCommands';
 import { useRouter } from 'next/navigation';
 
 const asciiArt = `
- ____ _          _     _              _               
+  ____ _          _     _              _               
  / ___| |__  _ __(_)___| |_ ___  _ __ | |__   ___ _ __ 
 | |   | '_ \\| '__| / __| __/ _ \\| '_ \\| '_ \\ / _ \\ '__|
 | |___| | | | |  | \\__ \\ || (_) | |_) | | | |  __/ |   
@@ -25,7 +25,39 @@ __        ___           _                _
 |_|   \\___/|_|   \\__|_|  \\___/|_|_|\\___/ 
 `;
 
-const TerminalController = (_props = {}) => {
+const cats =
+    " Art by Marcin Glinski\n" +
+    "       ,\n" +
+    "       \\`-._           __\n" +
+    "        \\ \\ `-..____,.'  `\\`.\n" +
+    "         :\\\`.         /    `\\`.\n" +
+    "         :  )       :      : \\\n" +
+    "          ;'        '   ;  |  :\n" +
+    "          )..      .. .:.`;  :\n" +
+    "         /::...  .:::...   \\` ;\n" +
+    "         ; _ '    __        /:\\\\\n" +
+    "         `:o>   /\\o_>      ;:. `.\n" +
+    "      `-`.`.__ ;   __..--- /:.   \\\n" +
+    "        === \\_/   ;=====_.':.     ;\n" +
+    "         ,/'`--'...'\`--....        ;\n" +
+    "              ;                    ;\n" +
+    "            .'                      ;\n" +
+    "          .'                        ;\n" +
+    "        .'     ..     ,      .       ;\n" +
+    "       :       ::..  /      ;::.     |\n" +
+    "      /      \\`.;::.  |       ;:..    ;\n" +
+    "     :         |:.   :       ;:.    ;\n" +
+    "     :         ::     ;:..   |.    ;\n" +
+    "      :       :;      :::....|     |\n" +
+    "      /\\\\     ,/ \\\\      ;:::::;     ;\n" +
+    "    .:. \\`:..|    :     ; '.--|     ;\n" +
+    "   ::.  :''  `-.,,;     ;'   ;     ;\n" +
+    "-'. _.'\\      / \\`;      \\,__:      \\\n" +
+    "`---'    `----'   ;      /    \\,.,,,/\n" +
+    "                   `----`              fsc\n";
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const TerminalController = (props = {}) => {
   const router = useRouter();
   //splash screen
   const [terminalLineData, setTerminalLineData] = useState([
@@ -79,6 +111,11 @@ const TerminalController = (_props = {}) => {
     } else if (input.toLowerCase() === 'blog') {
       // Links to /blog
       router.push('blog');
+    } else if (input.toLowerCase() === 'ilovecats') {
+      setTerminalLineData((prevState) => [
+        ...prevState,
+        <TerminalOutput key={prevState.length}>{cats}</TerminalOutput>
+      ]);
     } else {
       setTerminalLineData((prevState) => [
         ...prevState, 
