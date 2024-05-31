@@ -12,12 +12,13 @@ export const Help = (): string => {
 };
 
 export const About = (): string => {
-    return `Hi my name is Christopher Windsor and I\'m a software engineer living in South Africa.
-I have a passion for creating software.`;
+    return `    Hi my name is Christopher Windsor and I\'m a software engineer living in South Africa.
+    I have a passion for creating software.`;
 }
 
 export const Buttons = (): string => {
     return `    Buttons:
+    
     Red Button -- Press the red button to reset the terminal.
     Yellow Button -- Press the yellow button to display the help message.
     Green Button -- Press the green button for a list of my socials.
@@ -26,6 +27,7 @@ export const Buttons = (): string => {
 
 export const Socials = (): string => {
     return `    Socials:
+
     GitHub -- github.com/kriswind
     LinkedIn -- linkedin.com/in/kriswind
     Twitter -- twitter.com/krisvayu
