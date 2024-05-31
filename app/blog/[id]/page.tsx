@@ -1,4 +1,3 @@
-// app/blog/[id]/page.tsx
 import { getPostData, getAllPostIds, PostData } from '../../../lib/posts';
 
 interface PostProps {
@@ -22,6 +21,7 @@ export default async function Post({ params }: PostProps) {
       <h1>{postData.title}</h1>
       <p>{postData.date}</p>
       <div dangerouslySetInnerHTML={{ __html: postData.contentHtml || '' }} />
+      {postData.tags.length > 0 && <p>Tags: {postData.tags.join(', ')}</p>}
     </div>
   );
 }

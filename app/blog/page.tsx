@@ -8,13 +8,15 @@ export default function BlogPage() {
     <div>
       <h1>Hello, Welcome to my Blog Page</h1>
       <ul>
-        {allPostsData.map(({ id, date, title }) => (
+        {allPostsData.map(({ id, date, title, tags }) => (
           <li key={id}>
             <Link href={`/blog/${id}`}>
               {title}
             </Link>
             <br />
             <small>{date}</small>
+            <br />
+            {tags.length > 0 && <small>Tags: {tags.join(', ')}</small>}
           </li>
         ))}
       </ul>

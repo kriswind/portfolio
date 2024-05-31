@@ -1,6 +1,7 @@
 ---
 title: 'Dr. Seuss One Fish Two Fish Red Fish Blue Fish'
 date: '1960-03-12'
+tags: ['test']
 ---
 One fish, Two fish, Red fish, Blue fish,
 Black fish, Blue fish, Old fish, New fish.
