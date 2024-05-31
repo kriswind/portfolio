@@ -8,6 +8,7 @@ export const Help = (): string => {
     socials -- displays my socials
     light -- sets the terminal to lightmode
     dark -- sets the terminal to darkmode
+    blog -- links to my blog page
     `;
 };
 

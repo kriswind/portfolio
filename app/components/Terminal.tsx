@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Terminal, { ColorMode, TerminalOutput } from 'react-terminal-ui';
 import { Help, About, Buttons, Socials } from './TerminalCommands';
+import { useRouter } from 'next/navigation';
 
 const asciiArt = `
  ____ _          _     _              _               
@@ -25,6 +26,7 @@ __        ___           _                _
 `;
 
 const TerminalController = (_props = {}) => {
+  const router = useRouter();
   //splash screen
   const [terminalLineData, setTerminalLineData] = useState([
     <TerminalOutput key={0}>{ asciiArt + '\nPlease use the \'help\' command for a list of available commands.'}</TerminalOutput>
@@ -74,6 +76,9 @@ const TerminalController = (_props = {}) => {
       setTerminalLineData((prevState) => [
         ...prevState
       ]);
+    } else if (input.toLowerCase() === 'blog') {
+      // Links to /blog
+      router.push('blog');
     } else {
       setTerminalLineData((prevState) => [
         ...prevState, 

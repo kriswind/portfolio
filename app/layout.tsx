@@ -15,14 +15,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" style={{ margin: 0, padding: 0, boxSizing: 'border-box', backgroundColor: 'rgb(37,42,51)'}}>
-      <body className={inter.className} style={{ margin: 0, padding: 0, boxSizing: 'border-box' }}>
-        <main style={{ 
-          flex: 1, 
-          width: '100%',
-          margin: '0 auto',
-          boxSizing: 'border-box'
-        }}>
+    <html lang="en">
+      <body className={inter.className}>
+        <main>
           {children}
         </main>
       </body>
